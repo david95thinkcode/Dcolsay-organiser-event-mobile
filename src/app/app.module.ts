@@ -14,6 +14,8 @@ import { HomePage } from '../pages/home/home';
 import { TicketsPage } from "../pages/tickets/tickets";
 import { EventsPage } from "../pages/events/events";
 import { AccountPage } from "../pages/account/account";
+import { UserDetailsPage } from "../pages/user/user-details/user-details";
+import { EventDetailsPage } from '../pages/event-details/event-details';
 
 // Ionic components
 import { StatusBar } from '@ionic-native/status-bar';
@@ -27,7 +29,9 @@ import { SplashScreen } from '@ionic-native/splash-screen';
     TabsPage,
     TicketsPage,
     EventsPage,
-    AccountPage
+    AccountPage,
+    EventDetailsPage,
+    UserDetailsPage
   ],
   imports: [
     BrowserModule,
@@ -43,7 +47,9 @@ import { SplashScreen } from '@ionic-native/splash-screen';
     TabsPage,
     TicketsPage,
     EventsPage,
-    AccountPage
+    AccountPage,
+    EventDetailsPage,
+    UserDetailsPage
   ],
   providers: [
     StatusBar,
