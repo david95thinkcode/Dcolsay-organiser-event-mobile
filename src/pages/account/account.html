@@ -14,5 +14,20 @@
 
 
 <ion-content padding>
+  <ion-list>
+    <button ion-item (tap)="showUserDetail()">
+      <ion-icon name="create" item-start></ion-icon>
+      Mes informations
+    </button>
 
+    <button ion-item>
+      <ion-icon name="settings" item-start></ion-icon>
+      Paramètres
+    </button>
+
+    <button ion-item (tap)="showAbout()">
+        <ion-icon name="bulb" item-start></ion-icon>
+        A propos
+      </button>
+  </ion-list>
 </ion-content>

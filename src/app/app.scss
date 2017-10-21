@@ -14,3 +14,54 @@
 // To declare rules for a specific mode, create a child rule
 // for the .md, .ios, or .wp mode classes. The mode class is
 // automatically applied to the <body> element in the app.
+
+// Shadows
+$shadows-first: 5px 12px 20px rgba(36,37,38,0.13);
+$shadows-second : 0 6px 15px rgba(36,37,38,0.08);
+$shadows-primary: 0px 10px 20px 0px rgba(72, 138, 255, 0.39);
+$color-attendize: #2e3254;
+$color-tab-icon: #FFB300;
+$color-background-linear: linear-gradient(120deg, #fdfbfb 0%, #ebedee 100%);
+
+
+// 
+.card-md {
+    border-radius: 16px;
+    box-shadow: $shadows-second;
+}
+
+// tabs
+.tabs-md .tabbar {
+    background-color: $color-attendize;
+}
+
+.tabs-md .tab-button {
+    color: whitesmoke;
+}
+
+.tabs-md .tab-button-icon {
+    color: white;
+}
+
+// Selected tab
+
+.tabs-md .tab-button[aria-selected=true] .tab-button-icon {
+    color: $color-tab-icon;
+}
+
+.tabs-md .tab-button[aria-selected=true] {
+    color: $color-tab-icon;
+}
+
+// Header
+
+.toolbar-background-md {
+    background-color: transparent;
+}
+
+.toolbar-title-md {
+    color: $color-tab-icon;
+    text-align: center;
+}
+
+// Content

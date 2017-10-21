@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { NavController, NavParams } from 'ionic-angular';
-
+import { UserDetailsPage } from '../user/user-details/user-details';
+import { AboutPage } from '../about/about';
 /**
  * Generated class for the AccountPage page.
  *
@@ -19,6 +20,14 @@ export class AccountPage {
 
   ionViewDidLoad() {
     console.log('ionViewDidLoad AccountPage');
+  }
+
+  showUserDetail() {
+    this.navCtrl.push(UserDetailsPage);
+  }
+
+  showAbout() {
+    this.navCtrl.push(AboutPage);
   }
 
 }

@@ -16,7 +16,6 @@ export class EventListComponent {
 
   constructor() {
     console.log('Hello EventListComponent Component');
-    this.text = 'List of events';
+    this.text = 'List of events'; 
   }
-
 }
