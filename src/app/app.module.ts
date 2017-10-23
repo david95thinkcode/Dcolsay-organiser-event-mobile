@@ -1,8 +1,10 @@
-// Modules
+// Modules & Services
 import { NgModule, ErrorHandler } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { IonicApp, IonicModule, IonicErrorHandler } from 'ionic-angular';
 import { ComponentsModule } from "../components/components.module";
+// import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+// import { AnimationService, AnimatesDirective } from 'css-animator';
 
 // Components
 import { MyApp } from './app.component';
@@ -31,11 +33,12 @@ import { SplashScreen } from '@ionic-native/splash-screen';
     EventsPage,
     AccountPage,
     EventDetailsPage,
-    UserDetailsPage
+    UserDetailsPage,
+   // AnimatesDirective
   ],
   imports: [
     BrowserModule,
-    ComponentsModule,
+    ComponentsModule,    
     IonicModule.forRoot(MyApp),
     
   ],
@@ -54,6 +57,7 @@ import { SplashScreen } from '@ionic-native/splash-screen';
   providers: [
     StatusBar,
     SplashScreen,
+   // AnimationService,
     {provide: ErrorHandler, useClass: IonicErrorHandler}
   ]
 })
