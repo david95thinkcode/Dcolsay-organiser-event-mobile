@@ -13,21 +13,41 @@
 </ion-header>
 
 
-<ion-content padding>
+<ion-content>
   <ion-list>
-    <button ion-item (tap)="showUserDetail()">
-      <ion-icon name="create" item-start></ion-icon>
-      Mes informations
-    </button>
+    <ion-item-group>
+      <ion-item-divider color="light">Public</ion-item-divider>
 
-    <button ion-item>
-      <ion-icon name="settings" item-start></ion-icon>
-      Paramètres
-    </button>
+      <button ion-item (tap)="signIn()">
+        <ion-icon name="star" item-start></ion-icon>
+        Se connecter
+      </button>
 
-    <button ion-item (tap)="showAbout()">
+      <button ion-item (tap)="showUserDetail()">
+        <ion-icon name="create" item-start></ion-icon>
+        Mes informations
+      </button>
+
+      <button ion-item>
+        <ion-icon name="settings" item-start></ion-icon>
+        Paramètres
+      </button>
+
+      <button ion-item (tap)="showAbout()">
         <ion-icon name="bulb" item-start></ion-icon>
         A propos
       </button>
+    </ion-item-group>
+
+    <ion-item-group>
+      <ion-item-divider color="dark">Organizer</ion-item-divider>
+
+      <button ion-item (tap)="ticketScan()">
+        <ion-icon name="person" item-start></ion-icon>
+        Tickets scanning
+      </button>
+    </ion-item-group>
+
+
   </ion-list>
 </ion-content>
