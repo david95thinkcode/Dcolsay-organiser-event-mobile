@@ -3,6 +3,8 @@ import { NgModule, ErrorHandler } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { IonicApp, IonicModule, IonicErrorHandler } from 'ionic-angular';
 import { ComponentsModule } from "../components/components.module";
+import { BarcodeScanner } from "@ionic-native/barcode-scanner";
+
 // import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 // import { AnimationService, AnimatesDirective } from 'css-animator';
 
@@ -77,7 +79,8 @@ import { SplashScreen } from '@ionic-native/splash-screen';
     StatusBar,
     SplashScreen,
    // AnimationService,
-    {provide: ErrorHandler, useClass: IonicErrorHandler}
+    {provide: ErrorHandler, useClass: IonicErrorHandler},
+    BarcodeScanner
   ]
 })
 export class AppModule {}
