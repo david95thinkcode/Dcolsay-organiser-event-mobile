@@ -1,29 +1,50 @@
 page-event-details {
-    
-    .event-title {
-        font-size: x-large;
-        color: $color-attendize;
+  .background-page {
+    ion-card,
+    .carte {
+      position: relative;
+      text-align: center;
     }
-
-    .event-date {
-        font-size: xx-large;
+    .card-title {
+      text-transform: uppercase;
+      position: absolute;
+      top: 35%;
+      font-size: xx-large;
+      width: 100%;
+      font-weight: bold;
+      color: #fff;
     }
-
-    .event-place {
-        color: $color-tab-icon;
+    .card-subtitle {
+      font-size: 1.0em;
+      position: absolute;
+      top: 56%;
+      width: 100%;
+      color: #fff;
     }
-
-    .card-md {
-        background-image: "assets/events/first.jpg"
+    .grid,
+    .col {
+      padding: 0px;
     }
-
-    .item-md {
-        padding-top: 15px;
-        padding-bottom: 15px;
+    .item-md,
+    .item-ios {
+      background-color: transparent;
+      color: inherit;
     }
-
-    .button-md {
-        box-shadow: $shadows-primary;
-        -webkit-box-shadows: $shadows-primary;
+    img {
+      height: -webkit-fill-available;
     }
+  }
+  .event-date {
+    font-size: xx-large;
+  }
+  .event-place {
+    color: $color-tab-icon;
+  }
+  .card-md {
+    background-image: "assets/events/first.jpg"
+  }
+  .button-md {
+    box-shadow: $shadows-primary;
+    -webkit-box-shadows: $shadows-primary;
+  }
 }

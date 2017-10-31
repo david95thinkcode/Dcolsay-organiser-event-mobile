@@ -7,12 +7,23 @@
 <ion-header>
 
   <ion-navbar>
-    <ion-title>event-category-list</ion-title>
+    <ion-title>EVENT CATEGORY</ion-title>
   </ion-navbar>
 
 </ion-header>
 
 
-<ion-content padding>
+<ion-content class="card-background-page">
+  <ion-grid>
+
+    <ion-row *ngFor="let item of categories" (tap)="showEvents(item)">
+      <ion-col>
+        <div class="carte">
+          <img src="{{item.picture_path}}" />
+          <div class="card-title">{{item.label}}</div>
+        </div>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
 
 </ion-content>

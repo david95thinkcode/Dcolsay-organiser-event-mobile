@@ -31,10 +31,6 @@ export class EventSelectModalPage {
     console.log(this.userId);    
   }
 
-  ionViewDidLoad() {
-    console.log('ionViewDidLoad EventSelectModalPage');
-  }
-
   closeModal() {
     this.viewCtrl.dismiss();
   }

@@ -1,6 +1,6 @@
 // import { Component, ViewChild } from '@angular/core';
 import { Component } from '@angular/core';
-import { NavController } from 'ionic-angular';
+import { NavController, Platform  } from 'ionic-angular';
 // import { AnimationService, AnimationBuilder } from 'css-animator';
 
 
@@ -14,8 +14,10 @@ export class HomePage {
   // private animator: AnimationBuilder;
 
   // constructor(public navCtrl: NavController,  animationService: AnimationService) {
-  constructor(public navCtrl: NavController) {
+  constructor(public navCtrl: NavController, public plateform: Platform) {
     // this.animator = animationService.builder();
+    console.log(this.plateform);
+    
   }
 
   animateElem() {

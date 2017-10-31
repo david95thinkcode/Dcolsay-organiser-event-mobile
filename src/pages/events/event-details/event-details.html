@@ -12,40 +12,39 @@
 
 </ion-header>
 
-<ion-content>
+<ion-content class="background-page">
   <ion-grid>
 
     <ion-row>
-      <ion-img style="width: 100%; height: 200px;" src="assets/events/test.jpg"></ion-img>
-    </ion-row>
+      <ion-col>
+        <div class="carte">
+          <img src="assets/dev/glenn-carstens-peters-282287.jpg" />
+          <div class="card-title" text-left padding>UX Conference</div>
+          <div class="card-subtitle">
+            <ion-list no-lines>
+              <ion-item>
+                <ion-icon name="time" item-start></ion-icon>
+                April 16 - 19, 2017 - 11 : 00
+              </ion-item>
 
-    <ion-row>
-      <ion-col text-center>
-          <h2 class="event-title">Code Lab /> </h2>
-          <p>Zogbo, Cotonou</p>
+              <ion-item class="event-place">
+                <ion-icon name="pin" item-start></ion-icon>
+                Zogbo, Cotonou
+              </ion-item>
+
+              <ion-item class="event-place">
+                <ion-icon name="person" item-start></ion-icon>
+                250 places encore disponibles
+              </ion-item>
+
+            </ion-list>
+          </div>
+        </div>
       </ion-col>
-      
     </ion-row>
+  </ion-grid>
 
-    <ion-row padding>
-      <ion-list>
-        <ion-item class="event-date">
-          <ion-icon name="calendar" item-start></ion-icon>
-          16 septembre
-        </ion-item>
-        <ion-item>
-          <ion-icon name="time" item-start></ion-icon>
-          11 : 00
-        </ion-item>
-
-        <ion-item class="event-place">
-          <ion-icon name="time" item-start></ion-icon>
-          250 places encore disponibles
-        </ion-item>
-
-      </ion-list>
-    </ion-row>
-
+  <ion-grid>
     <ion-row></ion-row>
     <ion-row>
       <ion-card text-center>
