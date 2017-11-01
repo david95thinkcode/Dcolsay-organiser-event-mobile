@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { ViewController, NavController, NavParams } from 'ionic-angular';
 
 import { TicketScannerPage } from "../ticket-scanner/ticket-scanner";
@@ -15,20 +15,24 @@ import { TicketScannerPage } from "../ticket-scanner/ticket-scanner";
   templateUrl: 'event-select-modal.html',
 })
 
-export class EventSelectModalPage {
+export class EventSelectModalPage implements OnInit {
   private userId: number;
   private events: string[];
 
   //TODO: Retrive the list of events assigned to that organizer inside an the variable "events"
 
   constructor(public viewCtrl:ViewController, public navCtrl: NavController, public navParams: NavParams) {
-    this.userId = navParams.get('userId');
-    
+    this.userId = navParams.get('userId');  
+  }
+
+  ngOnInit() {
+    //Called after the constructor, initializing input properties, and the first call to ngOnChanges.
+    //Add 'implements OnInit' to the class.
     this.events = ['First event'];
     this.events.push("Code Lab spécial");
     this.events.push("UX Conference");
 
-    console.log(this.userId);    
+    console.log(this.userId);  
   }
 
   closeModal() {

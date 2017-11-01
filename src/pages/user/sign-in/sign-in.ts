@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { NavController, NavParams } from 'ionic-angular';
 
 /**
@@ -13,7 +13,7 @@ import { NavController, NavParams } from 'ionic-angular';
   templateUrl: 'sign-in.html',
 })
 
-export class SignInPage {
+export class SignInPage implements OnInit {
 
   constructor(public navCtrl: NavController, public navParams: NavParams) {
   }
@@ -24,6 +24,12 @@ export class SignInPage {
 
   signIn() {
     // TODO : Checks if the user exists and put so it values in global variables
+  }
+
+  ngOnInit() {
+    //Called after the constructor, initializing input properties, and the first call to ngOnChanges.
+    //Add 'implements OnInit' to the class.
+    
   }
 
 }

@@ -1,5 +1,5 @@
 // import { Component, ViewChild } from '@angular/core';
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { NavController, Platform  } from 'ionic-angular';
 // import { AnimationService, AnimationBuilder } from 'css-animator';
 
@@ -9,14 +9,18 @@ import { NavController, Platform  } from 'ionic-angular';
   templateUrl: 'home.html'
 })
 
-export class HomePage {
+export class HomePage implements OnInit {
   //@ViewChild('myElem') myElem;
   // private animator: AnimationBuilder;
 
   // constructor(public navCtrl: NavController,  animationService: AnimationService) {
   constructor(public navCtrl: NavController, public plateform: Platform) {
-    // this.animator = animationService.builder();
-    console.log(this.plateform);
+    // this.animator = animationService.builder();    
+  }
+
+  ngOnInit() {
+    //Called after the constructor, initializing input properties, and the first call to ngOnChanges.
+    //Add 'implements OnInit' to the class.
     
   }
 

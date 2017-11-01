@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { NavController, NavParams } from 'ionic-angular';
 import { EventsListPage } from "../events-list/events-list";
 import { EventCategory } from "../../../models/event-category";
@@ -14,10 +14,14 @@ import { EventCategory } from "../../../models/event-category";
   selector: 'page-event-category-list',
   templateUrl: 'event-category-list.html',
 })
-export class EventCategoryListPage {
+export class EventCategoryListPage implements OnInit {
   categories: EventCategory[];
 
   constructor(public navCtrl: NavController, public navParams: NavParams) {
+    //
+  }
+
+  ngOnInit() {
     this.categories = [];
     this.setCategories();
   }

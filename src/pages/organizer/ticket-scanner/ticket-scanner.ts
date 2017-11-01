@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { NavController, NavParams, Platform, AlertController } from 'ionic-angular';
 import { BarcodeScanner, BarcodeScannerOptions } from "@ionic-native/barcode-scanner";
 /**
@@ -13,7 +13,7 @@ import { BarcodeScanner, BarcodeScannerOptions } from "@ionic-native/barcode-sca
   templateUrl: 'ticket-scanner.html',
 })
 
-export class TicketScannerPage {
+export class TicketScannerPage implements OnInit {
   options: BarcodeScannerOptions;
   event: string;
   results: any;
@@ -28,6 +28,12 @@ export class TicketScannerPage {
     public plateform: Platform) {
 
     this.event = this.navParams.get('event');
+    
+  }
+
+  ngOnInit() {
+    //Called after the constructor, initializing input properties, and the first call to ngOnChanges.
+    //Add 'implements OnInit' to the class.
     this.ticketfound = false;
     this.attendeesCount = 0;
     this.attendeesNotCkeckedCount = 0;

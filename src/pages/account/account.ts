@@ -22,10 +22,6 @@ export class AccountPage {
   constructor(public modalCtrl: ModalController, public navCtrl: NavController, public navParams: NavParams) {
   }
 
-  ionViewDidLoad() {
-    console.log('ionViewDidLoad AccountPage');
-  }
-
   showUserDetail() {
     this.navCtrl.push(UserDetailsPage);
   }
