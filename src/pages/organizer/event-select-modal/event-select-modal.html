@@ -1,0 +1,33 @@
+<ion-header>
+
+  <ion-navbar color="attendize">
+    <ion-toolbar>
+      <ion-buttons end>
+        <button ion-button color="danger" (tap)="closeModal()">Fermer</button>
+      </ion-buttons>
+      <ion-title>Select an event</ion-title>
+    </ion-toolbar>
+  </ion-navbar>
+
+</ion-header>
+
+
+<ion-content padding>
+  <ion-grid>
+
+    <ion-row>
+      <ion-col text-center>
+        <h2>Choose an event to start scanning QR Code</h2>
+      </ion-col>
+    </ion-row>
+
+    <ion-row *ngFor="let event of events">
+      <ion-card (tap)="openScanner(event)">
+        <ion-card-content>
+          <h2>{{ event }} </h2>
+        </ion-card-content>
+      </ion-card>
+    </ion-row>
+
+  </ion-grid>
+</ion-content>

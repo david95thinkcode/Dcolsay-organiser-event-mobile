@@ -24,6 +24,12 @@ $color-tab-icon: #FFB300;
 $color-background-linear: linear-gradient(120deg, #fdfbfb 0%, #ebedee 100%);
 
 
+// buttons
+.button-md {
+    box-shadow: $shadows-second;
+    -webkit-box-shadows: $shadows-second;
+}
+
 // 
 .card-md {
     border-radius: 16px;

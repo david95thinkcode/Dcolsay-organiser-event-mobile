@@ -1,0 +1,16 @@
+page-tickets-list {
+    .content-md {
+        background-color: $color-attendize;
+    }
+
+    .card-md h2 {
+        font-weight: bolder;
+        font-size: larger;
+        color: black;
+    }
+
+    .card-header-md {
+        background-color: $color-tab-icon;
+        color: white;
+    }
+}

@@ -1,0 +1,20 @@
+page-sign-in {
+
+    .content-md {
+        // background-image: url("../assets/dev/grass-hands-moss-4627-825x550.jpg")
+        background: -webkit-linear-gradient(-30deg, rgb(255, 95, 109), rgb(255, 195, 113));
+        background: linear-gradient(-30deg, rgb(255, 95, 109), rgb(255, 195, 113));
+        
+    }
+
+    .content-md h1,
+    .content-md h2 {
+        color: white;
+    }
+
+    .item-md {
+        border-radius: 5px;
+        margin-bottom: 10px;
+    }
+
+}

@@ -1,8 +1,9 @@
 import { Component } from '@angular/core';
 
 import { HomePage } from '../home/home';
-import { EventsPage } from "../events/events";
-import { TicketsPage } from "../tickets/tickets";
+// import { EventsListPage } from "../events/events-list/events-list";
+import { TicketsListPage } from "../tickets/ticket-list/tickets-list";
+import { EventCategoryListPage } from "../events/event-category-list/event-category-list";
 import { AccountPage } from "../account/account";
 
 @Component({
@@ -11,8 +12,8 @@ import { AccountPage } from "../account/account";
 export class TabsPage {
 
   tab1Root = HomePage;
-  tab2Root = EventsPage;
-  tab3Root = TicketsPage;
+  tab2Root = EventCategoryListPage;
+  tab3Root = TicketsListPage;
   tab4Root = AccountPage;
   
   constructor() {
