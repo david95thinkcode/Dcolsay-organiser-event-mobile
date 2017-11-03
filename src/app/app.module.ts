@@ -3,6 +3,7 @@ import { NgModule, ErrorHandler } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { IonicApp, IonicModule, IonicErrorHandler } from 'ionic-angular';
 import { ComponentsModule } from "../components/components.module";
+import { NgxQRCodeModule } from "ngx-qrcode2";
 import { BarcodeScanner } from "@ionic-native/barcode-scanner";
 
 // import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
@@ -56,7 +57,8 @@ import { SplashScreen } from '@ionic-native/splash-screen';
   imports: [
     BrowserModule,
     ComponentsModule,    
-    IonicModule.forRoot(MyApp),    
+    IonicModule.forRoot(MyApp),  
+    NgxQRCodeModule  
   ],
   bootstrap: [IonicApp],
   entryComponents: [

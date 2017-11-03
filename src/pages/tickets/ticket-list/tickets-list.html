@@ -14,30 +14,33 @@
 
 
 <ion-content>
-  <ion-slides pager>
+  <ng-container *ngIf="qrcodeValue; else emptyTickets">
+    <ion-slides pager>
 
-    <ion-slide>
-      <ion-card (tap)="show()">
-        <ion-card-header text-left>
-          <h2>UX Conference</h2>
-          à Cadjehoun, Cotonou
-          <br> du 17 au 22 septembre
-          <br> 09h:00 - 14h:30
-        </ion-card-header>
+      <ion-slide *ngFor="let item of qrcodeValue">
+        <ion-card>
+          <ion-card-header text-left>
+            <h2>UX Conference</h2>
+            à Cadjehoun, Cotonou
+            <br> du 17 au 22 septembre
+            <br> 09h:00 - 14h:30
+          </ion-card-header>
 
-        <ion-card-content>
-          <ion-img width="320" height="320" src="assets/events/code.jpg"></ion-img>
-        </ion-card-content>
-      </ion-card>
-    </ion-slide>
+          <ion-card-content>
+            <ngx-qrcode [qrc-value]="item" [qrc-element-type]="elementType"></ngx-qrcode>
+          </ion-card-content>
+        </ion-card>
+      </ion-slide>
 
-    <ion-slide>
-      <h2>Ticket 2</h2>
-    </ion-slide>
+      <ion-slide>
+        <h2>Ticket 3</h2>
+      </ion-slide>
 
-    <ion-slide>
-      <h2>Ticket 3</h2>
-    </ion-slide>
+    </ion-slides>
+  </ng-container>
+  <ng-template #emptyTickets>
 
-  </ion-slides>
+  </ng-template>
+
+
 </ion-content>
