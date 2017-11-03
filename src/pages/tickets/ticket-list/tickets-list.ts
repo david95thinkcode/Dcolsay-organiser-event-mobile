@@ -1,5 +1,5 @@
-import { Component } from '@angular/core';
-import { NavController, NavParams } from 'ionic-angular';
+import {Component, OnInit} from '@angular/core';
+import {NavController, NavParams} from 'ionic-angular';
 
 /**
  * Generated class for the TicketsPage page.
@@ -8,24 +8,20 @@ import { NavController, NavParams } from 'ionic-angular';
  * Ionic pages and navigation.
  */
 
-@Component({
-  selector: 'page-tickets-list',
-  templateUrl: 'tickets-list.html',
-})
-export class TicketsListPage {
+@Component({selector: 'page-tickets-list', templateUrl: 'tickets-list.html'})
+export class TicketsListPage implements OnInit {
 
-  constructor(public navCtrl: NavController, public navParams: NavParams) {
+  qrcodeValue : string[]; // Here we store all Qrcode text of the user
+  elementType : 'text' | 'canvas' | 'img' = 'text';
+  dr : string;
+
+  constructor(public navCtrl : NavController, public navParams : NavParams) {
+    this.dr = "fdg vhdsbsdhvidfhvdfjhgkfhgihsdfighiHGVYDGVBFYSGFDIVSD5984"
   }
 
-  ionViewDidLoad() {
-    console.log('ionViewDidLoad TicketsPage');
-  }
-
-  /**
-   * Affiche le ticket sur un Modal Component
-   */
-  show() {
-    
+  ngOnInit() {
+    this.qrcodeValue = [];
+    this.qrcodeValue = ["david95thinkcode@github.io", "http://www.github.io"]
   }
 
 }

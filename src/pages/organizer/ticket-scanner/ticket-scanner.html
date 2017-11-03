@@ -16,11 +16,8 @@
 <ion-content padding>
 
   <div text-center>
-    <h1 text-center> {{ event }}</h1>
-
-    <button ion-button color="dark" (tap)="ScanBarcode()">
-      Scan a ticket
-    </button>
+    <h1 text-center> {{ event }}</h1>  <br>
+    <button ion-button full large icon-left color="secondary" (tap)="ScanBarcode()"><ion-icon name="qr-scanner"></ion-icon>SCAN TICKET</button>
   </div>
   <br>
   <br>
