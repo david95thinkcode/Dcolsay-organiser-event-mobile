@@ -4,8 +4,14 @@ import { BrowserModule } from '@angular/platform-browser';
 import { IonicApp, IonicModule, IonicErrorHandler } from 'ionic-angular';
 import { ComponentsModule } from "../components/components.module";
 import { NgxQRCodeModule } from "ngx-qrcode2";
+
+// Native modules & Components
+import { SQLite, SQLiteObject } from '@ionic-native/sqlite';
 import { BarcodeScanner } from "@ionic-native/barcode-scanner";
 
+import { IonicStorageModule } from "@ionic/storage";
+
+// Animations compenents
 // import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 // import { AnimationService, AnimatesDirective } from 'css-animator';
 
@@ -58,7 +64,8 @@ import { SplashScreen } from '@ionic-native/splash-screen';
     BrowserModule,
     ComponentsModule,    
     IonicModule.forRoot(MyApp),  
-    NgxQRCodeModule  
+    NgxQRCodeModule,
+    IonicStorageModule.forRoot()
   ],
   bootstrap: [IonicApp],
   entryComponents: [
@@ -82,7 +89,8 @@ import { SplashScreen } from '@ionic-native/splash-screen';
     SplashScreen,
    // AnimationService,
     {provide: ErrorHandler, useClass: IonicErrorHandler},
-    BarcodeScanner
+    BarcodeScanner,
+    SQLite
   ]
 })
 export class AppModule {}
