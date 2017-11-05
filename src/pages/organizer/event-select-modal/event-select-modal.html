@@ -1,11 +1,19 @@
 <ion-header>
 
-  <ion-navbar color="attendize">
+  <ion-navbar color="primary">
     <ion-toolbar>
-      <ion-buttons end>
-        <button ion-button color="danger" (tap)="closeModal()">Fermer</button>
+      <ion-buttons start>
+        <button ion-button icon-only color=''>
+          <ion-icon name="search"></ion-icon>
+        </button>
       </ion-buttons>
       <ion-title>Select an event</ion-title>
+      <ion-buttons end>
+        <button ion-button icon-only color="s" (tap)="closeModal()">
+            <ion-icon name="close-circle"></ion-icon>
+        </button>
+      </ion-buttons>
+      
     </ion-toolbar>
   </ion-navbar>
 
@@ -15,16 +23,20 @@
 <ion-content padding>
   <ion-grid>
 
-    <ion-row>
+    <!-- <ion-row>
       <ion-col text-center>
-        <h2>Choose an event to start scanning QR Code</h2>
+        <h3>Select an event</h3>
       </ion-col>
-    </ion-row>
+    </ion-row> -->
 
     <ion-row *ngFor="let event of events">
       <ion-card (tap)="openScanner(event)">
+        <ion-card-header>
+            <h2>{{ event }} </h2>
+        </ion-card-header>
         <ion-card-content>
-          <h2>{{ event }} </h2>
+          <!-- <h2>{{ event }} </h2> -->
+          <p>By Organizer X, <br> on Sept 12, 2017, at 12 PM</p>
         </ion-card-content>
       </ion-card>
     </ion-row>
