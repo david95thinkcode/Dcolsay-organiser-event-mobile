@@ -20,9 +20,7 @@ export class TicketScannerPage implements OnInit {
 
   constructor(private scanner : BarcodeScanner, public navCtrl : NavController, public navParams : NavParams, public alertCtrl : AlertController, public plateform : Platform) {
 
-    this.event = this
-      .navParams
-      .get('event');
+    this.event = this.navParams.get('event');
 
   }
 
