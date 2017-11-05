@@ -1,7 +1,7 @@
 {
   "name": "Dcolsay Events",
   "author": "Dcolsay",
-  "app_id": "",
+  "app_id": "6a6f60cf",
   "type": "ionic-angular",
   "integrations": {
     "cordova": {}
