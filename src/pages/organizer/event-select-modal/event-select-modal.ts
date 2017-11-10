@@ -26,13 +26,14 @@ export class EventSelectModalPage implements OnInit {
   }
 
   ngOnInit() {
-    //Called after the constructor, initializing input properties, and the first call to ngOnChanges.
-    //Add 'implements OnInit' to the class.
-    this.events = ['First event'];
+
+    this.events = [];
+    this.events.push('First event');
     this.events.push("Code Lab spécial");
     this.events.push("UX Conference");
 
-    console.log(this.userId);  
+    
+    // console.log(this.userId);  
   }
 
   closeModal() {
