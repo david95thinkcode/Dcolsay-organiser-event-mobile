@@ -5,8 +5,7 @@ export class Account {
     phone_number: string;
     primary_address: string;
     secondary_address: string;
-
-    constructor(parameters) {
-        
+    
+    constructor() {        
     }
 }
