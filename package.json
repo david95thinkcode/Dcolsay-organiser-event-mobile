@@ -1,7 +1,7 @@
 {
-  "name": "Dcolsay-Events",
+  "name": "dcolsay-tickets",
   "version": "0.0.1",
-  "author": "Dcolsay",
+  "author": "Dcolsay Dev Team",
   "homepage": "",
   "private": true,
   "scripts": {
