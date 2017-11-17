@@ -14,7 +14,6 @@ const CURRENT_USER_PASS_KEY:string = 'DCOLSAY_password';
 })
 export class MyApp {
   rootPage:any = TabsPage;
-// rootPage = 'LoginPage';
 
   constructor(platform: Platform, statusBar: StatusBar, splashScreen: SplashScreen, private storage : Storage) {
     platform.ready().then(() => {

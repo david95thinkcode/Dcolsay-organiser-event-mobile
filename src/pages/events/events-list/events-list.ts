@@ -1,5 +1,5 @@
 import {Component, OnInit} from '@angular/core';
-import {NavController, NavParams} from 'ionic-angular';
+import {NavController, LoadingController, Loading, NavParams} from 'ionic-angular';
 import {EventDetailsPage} from '../event-details/event-details';
 import {EventCategory} from "../../../models/event-category";
 import {SQLite, SQLiteObject} from '@ionic-native/sqlite';
@@ -16,10 +16,11 @@ const DATABASE_FILENAME: string = "db_dcolsay_events.db";
 
 export class EventsListPage implements OnInit {
   
+  loading: Loading;
   eventCategory : EventCategory;
   db: SQLiteObject; // 
 
-  constructor(public navCtrl : NavController, public navParams : NavParams, private sqlite : SQLite) {
+  constructor(public navCtrl : NavController, private loadingCtrl: LoadingController, public navParams : NavParams, private sqlite : SQLite) {
 
     this.eventCategory = this.navParams.get('category');
   }
@@ -30,6 +31,14 @@ export class EventsListPage implements OnInit {
 
   showDetails() {
     this.navCtrl.push(EventDetailsPage);
+  }
+
+  showLoading() {
+    this.loading = this.loadingCtrl.create({
+      content: 'Please wait...',
+      dismissOnPageChange: true
+    });
+    this.loading.present();
   }
 
 }

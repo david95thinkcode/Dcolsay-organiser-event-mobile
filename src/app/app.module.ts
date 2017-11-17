@@ -22,7 +22,6 @@ import { MyApp } from './app.component';
 // Pages
 import { TabsPage } from '../pages/tabs/tabs';
 import { AboutPage } from '../pages/about/about';
-import { HomePage } from '../pages/home/home';
 import { TicketsListPage } from "../pages/tickets/ticket-list/tickets-list";
 
 import { EventCategoryListPage } from "../pages/events/event-category-list/event-category-list";
@@ -47,7 +46,6 @@ import { AuthServiceProvider } from '../providers/auth-service/auth-service';
   declarations: [
     MyApp,
     AboutPage,
-    HomePage,
     TabsPage,
     TicketsListPage,
     EventsListPage,
@@ -72,7 +70,6 @@ import { AuthServiceProvider } from '../providers/auth-service/auth-service';
   entryComponents: [
     MyApp,
     AboutPage,
-    HomePage,
     TabsPage,
     TicketsListPage,
     EventsListPage,

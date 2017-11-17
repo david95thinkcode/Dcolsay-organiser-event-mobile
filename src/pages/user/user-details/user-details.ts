@@ -1,7 +1,9 @@
 import { Component, OnInit } from '@angular/core';
-import { NavController, NavParams, ToastController  } from 'ionic-angular';
+import { Platform, NavController, NavParams, ToastController  } from 'ionic-angular';
 import { SQLite, SQLiteObject}                from '@ionic-native/sqlite';
+import { AuthServiceProvider } from '../../../providers/auth-service/auth-service';
 import { AccountMobile } from "../../../models/account-mobile.model";
+import { User } from "../../../models/api/user.model";
 
 /**
  * Generated class for the UserDetailsPage page.
@@ -20,20 +22,29 @@ export class UserDetailsPage implements OnInit {
   
   db: SQLiteObject;
   account: AccountMobile;
+  currentUser: User;
 
-  constructor(private sqlite : SQLite, public navCtrl: NavController, public navParams: NavParams, public toastCtrl: ToastController) {
+  constructor(private sqlite : SQLite,
+    private auth: AuthServiceProvider,
+    public platform: Platform,
+    public navCtrl: NavController, 
+    public navParams: NavParams, 
+    public toastCtrl: ToastController) {
+    
+    this.platform.ready()
+    .then((ready) => {
+      this.currentUser = this.auth.getUserInfo();
+    })
+    .catch((err) => {
+
+    })
+    
   }
 
   ngOnInit() {
     //Called after the constructor, initializing input properties, and the first call to ngOnChanges.
     //Add 'implements OnInit' to the class.
-    this.account = new AccountMobile();
-    this.account.email = '';
-    this.account.firstname = '';
-    this.account.lastname = '';
-    this.account.tel = '';
-    this.account.profession = '';
-
+    
   }
 
   saveChanges() {

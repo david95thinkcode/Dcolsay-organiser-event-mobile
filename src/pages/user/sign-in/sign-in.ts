@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { NavController, NavParams } from 'ionic-angular';
-
+import { User } from "../../../models/api/user.model";
 /**
  * Generated class for the SignInPage page.
  *
@@ -14,8 +14,10 @@ import { NavController, NavParams } from 'ionic-angular';
 })
 
 export class SignInPage implements OnInit {
-
+  user: User;
+  
   constructor(public navCtrl: NavController, public navParams: NavParams) {
+    this.user = new User();
   }
 
   ionViewDidLoad() {
@@ -23,6 +25,7 @@ export class SignInPage implements OnInit {
   }
 
   signIn() {
+    
     // TODO : Checks if the user exists and put so it values in global variables
   }
 

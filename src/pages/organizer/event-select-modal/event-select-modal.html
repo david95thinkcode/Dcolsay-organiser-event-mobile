@@ -3,24 +3,24 @@
   <ion-navbar color="primary">
     <ion-toolbar>
       <ion-buttons start>
-        <button ion-button icon-only color=''>
+        <!-- <button ion-button icon-only color=''>
           <ion-icon name="search"></ion-icon>
-        </button>
+        </button> -->
       </ion-buttons>
       <ion-title>Select an event</ion-title>
       <ion-buttons end>
         <button ion-button icon-only color="s" (tap)="closeModal()">
-            <ion-icon name="close-circle"></ion-icon>
+          <ion-icon name="close-circle"></ion-icon>
         </button>
       </ion-buttons>
-      
+
     </ion-toolbar>
   </ion-navbar>
 
 </ion-header>
 
 
-<ion-content padding>
+<ion-content>
   <ion-grid>
 
     <!-- <ion-row>
@@ -30,16 +30,20 @@
     </ion-row> -->
 
     <ion-row *ngFor="let event of events">
-      <ion-card (tap)="openScanner(event)">
-        <ion-card-header>
-            <h2>{{ event }} </h2>
-        </ion-card-header>
-        <ion-card-content>
-          <!-- <h2>{{ event }} </h2> -->
-          <p>By Organizer X, <br> on Sept 12, 2017, at 12 PM</p>
-        </ion-card-content>
-      </ion-card>
-    </ion-row>
 
+      <ion-card (tap)="openScanner(event)">
+        <ion-item>
+          <ion-avatar item-start>
+            <img src="assets/dev/me.png">
+          </ion-avatar>
+          <h2>By Organizer X</h2>
+          <p>Sept 12, 2017, at 12 PM</p>
+        </ion-item>
+        <div padding>
+          <h1>{{ event }}</h1>
+        </div>
+      </ion-card>
+
+    </ion-row>
   </ion-grid>
 </ion-content>
