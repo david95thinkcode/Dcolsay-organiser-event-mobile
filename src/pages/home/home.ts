@@ -4,10 +4,11 @@ import {ToastController, NavController, ModalController, Platform, AlertControll
 import {Storage} from "@ionic/storage";
 import {SQLite, SQLiteObject} from '@ionic-native/sqlite';
 import {EventSelectModalPage} from '../organizer/event-select-modal/event-select-modal';
-
+import { AuthServiceProvider } from "../../providers/auth-service/auth-service";
+import { User } from "../../models/api/user.model";
 // import { AnimationService, AnimationBuilder } from 'css-animator';
 
-const DATABASE_FILENAME : string = "dcolsay_tickets.db";
+const DATABASE_FILENAME : string = 'dcolsay_tickets.db';
 
 @Component({selector: 'page-home', templateUrl: 'home.html'})
 
@@ -17,8 +18,10 @@ export class HomePage implements OnInit {
   // AnimationService) {
   db : SQLiteObject;
   database_config: any;
+  user: User = new User();
 
   constructor(public toastCtrl : ToastController, 
+    private auth:AuthServiceProvider,
     private sqlite : SQLite, 
     public modalCtrl : ModalController, 
     public alertCtrl : AlertController, 
@@ -27,21 +30,27 @@ export class HomePage implements OnInit {
     private storage : Storage) {
     // this.animator = animationService.builder();
     this.database_config = { name: DATABASE_FILENAME, location: 'default' };
-        
+    this.user = this.auth.getUserInfo();
   }
 
   ngOnInit() {
-    this.plateform.ready()
-    .then((action) => { this.OpenDatabase(); })
-    .catch((e) => { this.PresentAlert('Platform is not ready', e.message); })
+    // this.plateform.ready()
+    // .then((action) => { this.OpenDatabase(); })
+    // .catch((e) => { this.PresentAlert('Platform is not ready', e.message); })
   }
 
+  public logout() {
+    this.auth.logout().subscribe(succ => {
+      this.navCtrl.setRoot('LoginPage')
+    });
+  }
 
   /**
-   * Populate tables with defaut values
+   * Populate tables with defaut values (in progess...)
    */
   private PopulateTickets() : void {
-    
+    // TODO: finish it
+
     this.db.executeSql("INSERT INTO Tickets(code_data) VALUES('david95thinkcode@github.io')", {})
     .then(() =>  {
       // this.PresentAlert('Data 1 added', 'Default datas 1 added ;')
@@ -123,7 +132,6 @@ export class HomePage implements OnInit {
     const alert = this
       .alertCtrl
       .create({title: title, subTitle: msg, buttons: ['Dismiss']});
-
     alert.present();
   }
 

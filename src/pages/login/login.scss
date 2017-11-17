@@ -1,0 +1,50 @@
+page-login {
+    $gradient: linear-gradient(-30deg, rgb(255, 95, 109), rgb(255, 195, 113));
+    $gradient_webkit: -webkit-linear-gradient(-30deg, rgb(255, 95, 109), rgb(255, 195, 113));
+    
+    .title {
+        color: $color-attendize;
+        font-size: x-large;
+        font-weight: bolder;
+    }
+    .login-content {
+        background: $gradient_webkit;
+        background: $gradient;
+        
+        .logo-row {
+            padding-top: 50px;
+            padding-bottom: 20px;
+        }
+        .login-box {
+            // background: #399F8B;
+            padding: 20px 20px 0px 20px;
+            margin-top: 30px;
+        }
+        ion-row {
+            align-items: center;
+            text-align: center;
+        }
+        ion-item {
+            border-radius: 30px !important;
+            padding-left: 30px !important;
+            font-size: 0.9em;
+            margin-bottom: 10px;
+            border: 1px solid #ffffff;
+            border-bottom: 0px !important;
+            box-shadow: none !important;
+        }
+        .signup-col {
+            margin: 0px 16px 0px 16px;
+            padding-bottom: 20px;
+        }
+        .item-inner {
+            border-bottom-color: #ffffff !important;
+            box-shadow: none !important;
+        }
+        
+        .register-btn {
+            color: #ffffff;
+            font-size: 0.8em;
+        }
+    }
+}

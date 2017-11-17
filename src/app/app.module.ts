@@ -41,6 +41,7 @@ import { TicketScannerPage } from "../pages/organizer/ticket-scanner/ticket-scan
 // Ionic components
 import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
+import { AuthServiceProvider } from '../providers/auth-service/auth-service';
 
 @NgModule({
   declarations: [
@@ -90,7 +91,8 @@ import { SplashScreen } from '@ionic-native/splash-screen';
    // AnimationService,
     {provide: ErrorHandler, useClass: IonicErrorHandler},
     BarcodeScanner,
-    SQLite
+    SQLite,
+    AuthServiceProvider
   ]
 })
 export class AppModule {}

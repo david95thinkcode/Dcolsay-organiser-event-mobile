@@ -1,6 +1,6 @@
 <ion-header>
   <ion-navbar>
-    <ion-title text-center>Dcolsay Events</ion-title>
+    <ion-title text-center>Dcolsay Tickets</ion-title>
   </ion-navbar>
 </ion-header>
 
@@ -15,12 +15,20 @@
   <div>
     <!-- <button ion-button (click)="animateElem()">Animate it!</button>
      -->
-    <div text-center #myElem>
-      <div text-center>
-        <br>
-        <img src="assets/events/fire.png">
-        <p>Demo  version</p>
+    <ng-container *ngIf="user; else notUser">
+      <div text-center #myElem>
+        <div text-center>
+          <h3>Welcome inside, {{ user.first_name }} !</h3>
+          <br>
+          <img src="assets/events/fire.png">
+          <p>Demo version</p>
+        </div>
       </div>
-    </div>
+    </ng-container>
+    <ng-template #notUser>
+      <h3>Looks like you're not register yet.</h3>
+      <h1>Cannot retrieve user data correctly ! </h1>
+    </ng-template>
+
   </div>
 </ion-content>
