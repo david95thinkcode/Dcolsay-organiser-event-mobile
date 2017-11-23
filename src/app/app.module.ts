@@ -32,10 +32,6 @@ import { AccountPage } from "../pages/account/account";
 
 import { UserDetailsPage } from "../pages/user/user-details/user-details";
 import { SignInPage } from '../pages/user/sign-in/sign-in';
-import { SignUpPage } from '../pages/user/sign-up/sign-up';
-
-import { EventSelectModalPage } from "../pages/organizer/event-select-modal/event-select-modal";
-import { TicketScannerPage } from "../pages/organizer/ticket-scanner/ticket-scanner";
 
 // Ionic components
 import { StatusBar } from '@ionic-native/status-bar';
@@ -53,9 +49,6 @@ import { AuthServiceProvider } from '../providers/auth-service/auth-service';
     EventDetailsPage,
     UserDetailsPage,
     SignInPage,
-    SignUpPage,
-    EventSelectModalPage,
-    TicketScannerPage,
     EventCategoryListPage
    // AnimatesDirective
   ],
@@ -77,9 +70,6 @@ import { AuthServiceProvider } from '../providers/auth-service/auth-service';
     EventDetailsPage,
     UserDetailsPage,
     SignInPage,
-    SignUpPage,
-    EventSelectModalPage,
-    TicketScannerPage,
     EventCategoryListPage
   ],
   providers: [
