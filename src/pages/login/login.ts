@@ -5,16 +5,13 @@
  * Ionic pages and navigation.
  */
 
-import { Component }        from '@angular/core';
-import { Storage }          from '@ionic/storage';
+import { Component, OnInit }        from '@angular/core';
+import { Storage }                  from '@ionic/storage';
 import { Platform, IonicPage,  AlertController, LoadingController, Loading, NavController, NavParams } from 'ionic-angular';
-import { User }             from "../../models/api/user.model";
-import { AuthServiceProvider } from '../../providers/auth-service/auth-service';
-import { TabsPage }         from '../tabs/tabs';
-
-// Static variables
-const CURRENT_USER_MAIL_KEY:string = 'DCOLSAY_email';
-const CURRENT_USER_PASS_KEY:string = 'DCOLSAY_password';
+import { User }                     from "../../models/api/user.model";
+import { AuthServiceProvider }      from '../../providers/auth-service/auth-service';
+import { TabsPage }                 from '../tabs/tabs';
+import * as StorageKey              from '../../models/storage';
 
 @IonicPage()
 
@@ -23,7 +20,7 @@ const CURRENT_USER_PASS_KEY:string = 'DCOLSAY_password';
   templateUrl: 'login.html',
 })
 
-export class LoginPage {
+export class LoginPage implements OnInit{
 
   loading: Loading;
   user: User;
@@ -38,13 +35,18 @@ export class LoginPage {
   {
       this.user = new User();
   }
-    
+
+
+  ngOnInit() {
+    this.user.email = 'davidhihea@gmail.com'; //using default value for test
+  }
+  
   /**
    * Store user data in local storage
    */
   private StoreUser() {
-    this.storage.set(CURRENT_USER_MAIL_KEY, this.user.email);
-    this.storage.set(CURRENT_USER_PASS_KEY, this.user.password);
+    this.storage.set(StorageKey.getEmailKey(), this.user.email);
+    this.storage.set(StorageKey.getPasswordKey(), this.user.password);
   }
 
   public login() {
