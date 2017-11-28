@@ -4,17 +4,14 @@ import { StatusBar }        from '@ionic-native/status-bar';
 import { SplashScreen }     from '@ionic-native/splash-screen';
 import { Storage  }         from "@ionic/storage";
 import { TabsPage }         from '../pages/tabs/tabs';
-
-// Static variables
-const CURRENT_USER_MAIL_KEY:string = 'DCOLSAY_email';
-const CURRENT_USER_PASS_KEY:string = 'DCOLSAY_password';
+import * as StorageKey      from '../models/storage';
 
 @Component({
   templateUrl: 'app.html'
 })
 export class MyApp {
   rootPage:any = TabsPage;
-
+  
   constructor(platform: Platform, statusBar: StatusBar, splashScreen: SplashScreen, private storage : Storage) {
     platform.ready().then(() => {
       // Okay, so the platform is ready and our plugins are available.
@@ -29,14 +26,13 @@ export class MyApp {
        * so we will directly go to ====> TabsPage
        * Otherwise, we go to ====>  LoginPage
        */
-      this.storage.get(CURRENT_USER_MAIL_KEY)
+      this.storage.get(StorageKey.getEmailKey())
       .then((mail) => {
         if (mail == null) {
-          this.storage.get(CURRENT_USER_PASS_KEY)
+          this.storage.get(StorageKey.getPasswordKey())
           .then((password) => {
             if (password == null) {
-              // Here we go to the LoginPage
-              this.rootPage = 'LoginPage';
+              this.rootPage = 'LoginPage'; // Here we go to the LoginPage
             }
           })
         }

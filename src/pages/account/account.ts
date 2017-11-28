@@ -1,10 +1,9 @@
 import { Component } from '@angular/core';
-import { ModalController, NavController, NavParams } from 'ionic-angular';
+import { ModalController, NavController, NavParams, App } from 'ionic-angular';
 
 import { UserDetailsPage } from '../user/user-details/user-details';
-import { SignInPage } from '../user/sign-in/sign-in';
 import { AboutPage } from '../about/about';
-import { EventSelectModalPage } from '../organizer/event-select-modal/event-select-modal';
+import { AuthServiceProvider } from "../../providers/auth-service/auth-service";
 
 /**
  * Generated class for the AccountPage page.
@@ -17,9 +16,10 @@ import { EventSelectModalPage } from '../organizer/event-select-modal/event-sele
   selector: 'page-account',
   templateUrl: 'account.html',
 })
+
 export class AccountPage {
 
-  constructor(public modalCtrl: ModalController, public navCtrl: NavController, public navParams: NavParams) {
+  constructor(public app: App, private auth: AuthServiceProvider, public modalCtrl: ModalController, public navCtrl: NavController, public navParams: NavParams) {
   }
 
   showUserDetail() {
@@ -30,14 +30,8 @@ export class AccountPage {
     this.navCtrl.push(AboutPage);
   }
 
-  signIn() {
-    this.navCtrl.push(SignInPage);
+  Logout() {
+    this.auth.logout(); 
+    this.app.getRootNav().setRoot('LoginPage');
   }
-
-  ticketScan() {
-    // TODO : open a modal that show events that this organiser is assigned to
-    const EventSelectModal = this.modalCtrl.create(EventSelectModalPage, { userId: 81995 });
-    EventSelectModal.present();
-  }
-
 }

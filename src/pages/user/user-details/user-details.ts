@@ -1,9 +1,11 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit }        from '@angular/core';
 import { Platform, NavController, NavParams, ToastController  } from 'ionic-angular';
-import { SQLite, SQLiteObject}                from '@ionic-native/sqlite';
-import { AuthServiceProvider } from '../../../providers/auth-service/auth-service';
-import { AccountMobile } from "../../../models/account-mobile.model";
-import { User } from "../../../models/api/user.model";
+import { SQLite, SQLiteObject}      from '@ionic-native/sqlite';
+import { AuthServiceProvider }      from '../../../providers/auth-service/auth-service';
+import { AccountMobile }            from "../../../models/account-mobile.model";
+import { User }                     from "../../../models/api/user.model";
+import { Storage }                  from '@ionic/storage/dist/storage';
+import * as StorageKey              from '../../../models/storage';
 
 /**
  * Generated class for the UserDetailsPage page.
@@ -25,6 +27,7 @@ export class UserDetailsPage implements OnInit {
   currentUser: User;
 
   constructor(private sqlite : SQLite,
+    private storage: Storage,
     private auth: AuthServiceProvider,
     public platform: Platform,
     public navCtrl: NavController, 
@@ -35,9 +38,7 @@ export class UserDetailsPage implements OnInit {
     .then((ready) => {
       this.currentUser = this.auth.getUserInfo();
     })
-    .catch((err) => {
-
-    })
+    .catch((err) => { })
     
   }
 

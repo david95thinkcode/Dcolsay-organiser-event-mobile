@@ -1,34 +1,68 @@
+<!--
+  Generated template for the TicketsPage page.
+
+  See http://ionicframework.com/docs/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
 <ion-header>
+
   <ion-navbar>
-    <ion-title text-center>Dcolsay Tickets</ion-title>
+    <ion-title text-uppercase>My Tickets</ion-title>
   </ion-navbar>
+
 </ion-header>
 
-<ion-content padding>
 
-  <ion-fab right bottom>
-    <button ion-fab color="primary" (tap)="showScanPage()">
-      <ion-icon name="qr-scanner"></ion-icon>
-    </button>
-  </ion-fab>
+<ion-content>
+  <!-- REAL SITUATION -->
+  <ng-container *ngIf="tickets; else emptyTicketsFromAPI">
+    <ion-slides pager>
 
-  <div>
-    <!-- <button ion-button (click)="animateElem()">Animate it!</button>
-     -->
-    <ng-container *ngIf="user; else notUser">
-      <div text-center #myElem>
-        <div text-center>
-          <h3>Welcome inside, {{ user.first_name }} !</h3>
-          <br>
-          <img src="assets/events/fire.png">
-          <p>Demo version</p>
-        </div>
-      </div>
-    </ng-container>
-    <ng-template #notUser>
-      <h3>Looks like you're not register yet.</h3>
-      <h1>Cannot retrieve user data correctly ! </h1>
-    </ng-template>
+      <ion-slide *ngFor="let ticket of tickets">
+        <ion-card>
+          <ion-card-header text-left>
+            <h2>API </h2>
+            à Cadjehoun, Cotonou
+            <br> du 17 au 22 septembre
+            <br> 09h:00 - 14h:30
+          </ion-card-header>
 
-  </div>
+          <ion-card-content>
+            <ngx-qrcode [qrc-value]="ticket.barcode" [qrc-element-type]="elementType"></ngx-qrcode>
+          </ion-card-content>
+        </ion-card>
+      </ion-slide>
+
+    </ion-slides>
+  </ng-container>
+
+<ng-template #emptyTicketsFromAPI>
+  <!-- FOR TEST -->
+  <!-- <ng-container *ngIf="qrcodeValue; else emptyTickets">
+    <ion-slides pager>
+
+      <ion-slide *ngFor="let item of qrcodeValue">
+        <ion-card>
+          <ion-card-header text-left>
+            <h2>UX Conference</h2>
+            à Cadjehoun, Cotonou
+            <br> du 17 au 22 septembre
+            <br> 09h:00 - 14h:30
+          </ion-card-header>
+
+          <ion-card-content>
+            <ngx-qrcode [qrc-value]="item" [qrc-element-type]="elementType"></ngx-qrcode>
+            <h3>{{ item }}</h3>
+          </ion-card-content>
+        </ion-card>
+      </ion-slide>
+
+    </ion-slides>
+  </ng-container>
+
+  <ng-template #emptyTickets> </ng-template> -->
+</ng-template>
+
+
+  
 </ion-content>

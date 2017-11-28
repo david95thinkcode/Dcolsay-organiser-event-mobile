@@ -1,8 +1,10 @@
+import { Storage  }         from "@ionic/storage";
 import { Injectable } from '@angular/core';
 import { Http } from '@angular/http';
 import { Observable } from 'rxjs/Observable';
 import 'rxjs/add/operator/map';
 import { User } from "../../models/api/user.model";
+import * as StorageKey              from '../../models/storage';
 
 /*
   Generated class for the AuthServiceProvider provider.
@@ -16,7 +18,7 @@ import { User } from "../../models/api/user.model";
 export class AuthServiceProvider {
   currentUser: User;
 
-  constructor() {
+  constructor(private storage: Storage) {
     console.log('Hello AuthServiceProvider Provider');
   }
 
@@ -31,7 +33,7 @@ export class AuthServiceProvider {
     else {
       return Observable.create(observer => {
         // make a request to the backend to make a real check!
-        let access = (credentials.password == _default_pass && credentials.email == _default_email);
+        let access = (credentials.password == _default_pass && credentials.email.trim() == _default_email);
         this.currentUser = new User();
         this.currentUser.email = _default_email;
         this.currentUser.password = _default_pass;
@@ -63,10 +65,22 @@ export class AuthServiceProvider {
  
   public logout() {
     return Observable.create(observer => {
-      this.currentUser = null;
+      this.DeleteAuthFromLocalStorale();
+      this.currentUser = null;      
       observer.next(true);
       observer.complete();
     });
+  }
+
+  private DeleteAuthFromLocalStorale() {
+    // TODO : this is not working properly
+    this.storage.remove(StorageKey.getEmailKey())
+    .then((one) => {
+      // this.storage.remove(StorageKey.getPasswordKey())
+      // .then((sec) => { console.log('MDP supprimé')  })
+      // .catch()
+    })
+    .catch((ror) => { console.log("Logout failed"); })
   }
 
 }

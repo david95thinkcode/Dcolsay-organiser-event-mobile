@@ -2,7 +2,6 @@ import {Component, OnInit} from '@angular/core';
 import {NavController, LoadingController, Loading, NavParams} from 'ionic-angular';
 import {EventDetailsPage} from '../event-details/event-details';
 import {EventCategory} from "../../../models/event-category";
-import {SQLite, SQLiteObject} from '@ionic-native/sqlite';
 
 /**
  * Generated class for the EventsPage page.
@@ -10,7 +9,6 @@ import {SQLite, SQLiteObject} from '@ionic-native/sqlite';
  * See https://ionicframework.com/docs/components/#navigation for more info on
  * Ionic pages and navigation.
  */
-const DATABASE_FILENAME: string = "db_dcolsay_events.db";
 
 @Component({selector: 'page-events-list', templateUrl: 'events-list.html'})
 
@@ -18,9 +16,8 @@ export class EventsListPage implements OnInit {
   
   loading: Loading;
   eventCategory : EventCategory;
-  db: SQLiteObject; // 
-
-  constructor(public navCtrl : NavController, private loadingCtrl: LoadingController, public navParams : NavParams, private sqlite : SQLite) {
+  
+  constructor(public navCtrl : NavController, private loadingCtrl: LoadingController, public navParams : NavParams) {
 
     this.eventCategory = this.navParams.get('category');
   }
