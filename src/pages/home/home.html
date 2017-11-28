@@ -29,18 +29,14 @@
 
           <ion-card-content>
             <ngx-qrcode [qrc-value]="ticket.barcode" [qrc-element-type]="elementType"></ngx-qrcode>
-            <h3>{{ ticket.barcode }}</h3>
           </ion-card-content>
         </ion-card>
       </ion-slide>
 
     </ion-slides>
   </ng-container>
-  
-  <ng-template #emptyTicketsFromAPI>
-    
-  </ng-template>
 
+<ng-template #emptyTicketsFromAPI>
   <!-- FOR TEST -->
   <!-- <ng-container *ngIf="qrcodeValue; else emptyTickets">
     <ion-slides pager>
@@ -63,10 +59,10 @@
 
     </ion-slides>
   </ng-container>
+
+  <ng-template #emptyTickets> </ng-template> -->
+</ng-template>
+
+
   
-  <ng-template #emptyTickets>
-
-  </ng-template> -->
-
-
 </ion-content>

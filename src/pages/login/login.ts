@@ -85,16 +85,8 @@ export class LoginPage implements OnInit{
     alert.present(prompt);
   }
 
-
-  public createAccount() {
-    this.nav.push('RegisterPage');
-  }
+  // public createAccount() {
+  //   this.nav.push('RegisterPage');
+  // }
  
-  /**
-   * Used to skip dierctly to the root page
-   */
-  private SkipToRoot() {
-    this.showLoading();
-    this.nav.setRoot(TabsPage);
-  }
 }

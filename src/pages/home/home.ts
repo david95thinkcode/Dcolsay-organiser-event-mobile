@@ -1,10 +1,10 @@
 // THIS IS THE HOME COMPONENT, WE SHOULD CHANGE THE NAME
 
 import { Component, OnInit} from '@angular/core';
-import { NavController, AlertController, NavParams} from 'ionic-angular';
-import { AttendeeTicketServiceProvider } from '../../../providers/attendee-ticket-service/attendee-ticket-service';
-import { AttendeeTicket } from '../../../models/api/attendee-ticket.model';
-import { User } from '../../../models/api/user.model';
+import { NavController, LoadingController, Loading, AlertController, NavParams} from 'ionic-angular';
+import { AttendeeTicketServiceProvider } from '../../providers/attendee-ticket-service/attendee-ticket-service';
+import { AttendeeTicket } from '../../models/api/attendee-ticket.model';
+import { User } from '../../models/api/user.model';
 /**
  * Generated class for the TicketsPage page.
  *
@@ -12,10 +12,11 @@ import { User } from '../../../models/api/user.model';
  * Ionic pages and navigation.
  */
 
-@Component({selector: 'page-tickets-list', templateUrl: 'tickets-list.html'})
+@Component({selector: 'page-home', templateUrl: 'home.html'})
 
-export class TicketsListPage implements OnInit {
+export class HomePage implements OnInit {
   
+  loading: Loading;
   private tickets : AttendeeTicket[];
   private user : User = new User();
 
@@ -25,7 +26,8 @@ export class TicketsListPage implements OnInit {
   constructor(public alertCtrl : AlertController,
     public navCtrl : NavController, 
     public navParams : NavParams,
-    private ticketService : AttendeeTicketServiceProvider) {
+    private ticketService : AttendeeTicketServiceProvider,
+    private loadingCtrl: LoadingController) {
     // this.dr = "fdg vhdsbsdhvidfhvdfjhgkfhgihsdfighiHGVYDGVBFYSGFDIVSD5984";
   } 
 
@@ -57,5 +59,13 @@ export class TicketsListPage implements OnInit {
       });
 
     alert.present();
+  }
+
+  showLoading() {
+    this.loading = this.loadingCtrl.create({
+      content: 'Please wait...',
+      dismissOnPageChange: true
+    });
+    this.loading.present();
   }
 }

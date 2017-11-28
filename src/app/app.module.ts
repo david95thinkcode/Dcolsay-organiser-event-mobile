@@ -2,7 +2,6 @@
 import { NgModule, ErrorHandler } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { IonicApp, IonicModule, IonicErrorHandler } from 'ionic-angular';
-import { ComponentsModule } from "../components/components.module";
 import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
 import { NgxQRCodeModule } from "ngx-qrcode2";
@@ -22,7 +21,7 @@ import { MyApp } from './app.component';
 // Pages
 import { TabsPage } from '../pages/tabs/tabs';
 import { AboutPage } from '../pages/about/about';
-import { TicketsListPage } from "../pages/tickets/ticket-list/tickets-list";
+import { HomePage } from "../pages/home/home";
 
 import { EventCategoryListPage } from "../pages/events/event-category-list/event-category-list";
 import { EventsListPage } from "../pages/events/events-list/events-list";
@@ -34,13 +33,14 @@ import { SignInPage } from '../pages/user/sign-in/sign-in';
 // Providers
 import { AuthServiceProvider } from '../providers/auth-service/auth-service';
 import { AttendeeTicketServiceProvider } from '../providers/attendee-ticket-service/attendee-ticket-service';
+import { EventServiceProvider } from '../providers/event-service/event-service';
 
 @NgModule({
   declarations: [
     MyApp,
     AboutPage,
     TabsPage,
-    TicketsListPage,
+    HomePage,
     EventsListPage,
     AccountPage,
     EventDetailsPage,
@@ -51,7 +51,6 @@ import { AttendeeTicketServiceProvider } from '../providers/attendee-ticket-serv
   ],
   imports: [
     BrowserModule,
-    ComponentsModule,    
     IonicModule.forRoot(MyApp),  
     NgxQRCodeModule,
     HttpModule,
@@ -62,7 +61,7 @@ import { AttendeeTicketServiceProvider } from '../providers/attendee-ticket-serv
     MyApp,
     AboutPage,
     TabsPage,
-    TicketsListPage,
+    HomePage,
     EventsListPage,
     AccountPage,
     EventDetailsPage,
@@ -78,7 +77,8 @@ import { AttendeeTicketServiceProvider } from '../providers/attendee-ticket-serv
     BarcodeScanner,
     SQLite,
     AuthServiceProvider,
-    AttendeeTicketServiceProvider
+    AttendeeTicketServiceProvider,
+    EventServiceProvider
   ]
 })
 export class AppModule {}
