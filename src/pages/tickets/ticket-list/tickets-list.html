@@ -14,7 +14,35 @@
 
 
 <ion-content>
-  <ng-container *ngIf="qrcodeValue; else emptyTickets">
+  <!-- REAL SITUATION -->
+  <ng-container *ngIf="tickets; else emptyTicketsFromAPI">
+    <ion-slides pager>
+
+      <ion-slide *ngFor="let ticket of tickets">
+        <ion-card>
+          <ion-card-header text-left>
+            <h2>API </h2>
+            à Cadjehoun, Cotonou
+            <br> du 17 au 22 septembre
+            <br> 09h:00 - 14h:30
+          </ion-card-header>
+
+          <ion-card-content>
+            <ngx-qrcode [qrc-value]="ticket.barcode" [qrc-element-type]="elementType"></ngx-qrcode>
+            <h3>{{ ticket.barcode }}</h3>
+          </ion-card-content>
+        </ion-card>
+      </ion-slide>
+
+    </ion-slides>
+  </ng-container>
+  
+  <ng-template #emptyTicketsFromAPI>
+    
+  </ng-template>
+
+  <!-- FOR TEST -->
+  <!-- <ng-container *ngIf="qrcodeValue; else emptyTickets">
     <ion-slides pager>
 
       <ion-slide *ngFor="let item of qrcodeValue">
@@ -27,7 +55,7 @@
           </ion-card-header>
 
           <ion-card-content>
-            <!-- <ngx-qrcode [qrc-value]="item" [qrc-element-type]="elementType"></ngx-qrcode> -->
+            <ngx-qrcode [qrc-value]="item" [qrc-element-type]="elementType"></ngx-qrcode>
             <h3>{{ item }}</h3>
           </ion-card-content>
         </ion-card>
@@ -38,7 +66,7 @@
   
   <ng-template #emptyTickets>
 
-  </ng-template>
+  </ng-template> -->
 
 
 </ion-content>

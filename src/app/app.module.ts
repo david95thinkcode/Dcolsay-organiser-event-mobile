@@ -1,15 +1,15 @@
-// Modules & Services
+// Modules
 import { NgModule, ErrorHandler } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { IonicApp, IonicModule, IonicErrorHandler } from 'ionic-angular';
 import { ComponentsModule } from "../components/components.module";
+import { StatusBar } from '@ionic-native/status-bar';
+import { SplashScreen } from '@ionic-native/splash-screen';
 import { NgxQRCodeModule } from "ngx-qrcode2";
-
-// Native modules & Components
+import { IonicStorageModule } from "@ionic/storage";
+import { HttpModule } from '@angular/http';
 import { SQLite, SQLiteObject } from '@ionic-native/sqlite';
 import { BarcodeScanner } from "@ionic-native/barcode-scanner";
-
-import { IonicStorageModule } from "@ionic/storage";
 
 // Animations compenents
 // import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
@@ -27,16 +27,13 @@ import { TicketsListPage } from "../pages/tickets/ticket-list/tickets-list";
 import { EventCategoryListPage } from "../pages/events/event-category-list/event-category-list";
 import { EventsListPage } from "../pages/events/events-list/events-list";
 import { EventDetailsPage } from '../pages/events/event-details/event-details';
-
 import { AccountPage } from "../pages/account/account";
-
 import { UserDetailsPage } from "../pages/user/user-details/user-details";
 import { SignInPage } from '../pages/user/sign-in/sign-in';
 
-// Ionic components
-import { StatusBar } from '@ionic-native/status-bar';
-import { SplashScreen } from '@ionic-native/splash-screen';
+// Providers
 import { AuthServiceProvider } from '../providers/auth-service/auth-service';
+import { AttendeeTicketServiceProvider } from '../providers/attendee-ticket-service/attendee-ticket-service';
 
 @NgModule({
   declarations: [
@@ -57,6 +54,7 @@ import { AuthServiceProvider } from '../providers/auth-service/auth-service';
     ComponentsModule,    
     IonicModule.forRoot(MyApp),  
     NgxQRCodeModule,
+    HttpModule,
     IonicStorageModule.forRoot()
   ],
   bootstrap: [IonicApp],
@@ -79,7 +77,8 @@ import { AuthServiceProvider } from '../providers/auth-service/auth-service';
     {provide: ErrorHandler, useClass: IonicErrorHandler},
     BarcodeScanner,
     SQLite,
-    AuthServiceProvider
+    AuthServiceProvider,
+    AttendeeTicketServiceProvider
   ]
 })
 export class AppModule {}
