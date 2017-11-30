@@ -3,9 +3,12 @@ page-events-list {
   // .toolbar-background-md {
   //   background-color: transparent;
   // }
-
+  .card-header-md {
+    background-color: $color-tab-icon;
+    color: white;
+}
   .content-md {
-    // background: #009688;
+    // background: $color-attendize;
     background-image: linear-gradient(120deg, #fdfbfb 0%, #ebedee 100%);
   }
   .card-background-page {
