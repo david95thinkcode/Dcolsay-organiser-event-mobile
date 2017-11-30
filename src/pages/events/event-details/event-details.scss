@@ -1,4 +1,9 @@
 page-event-details {
+    
+    .card-header-md {
+        background-color: $color-tab-icon;
+        color: white;
+    }
     .background-page {
         ion-card,
         .carte {
@@ -8,7 +13,7 @@ page-event-details {
         .card-title {
             text-transform: uppercase;
             position: absolute;
-            top: 35%;
+            top: 20%;
             font-size: xx-large;
             width: 100%;
             font-weight: bold;
@@ -17,7 +22,7 @@ page-event-details {
         .card-subtitle {
             font-size: 1.0em;
             position: absolute;
-            top: 56%;
+            top: 35%;
             width: 100%;
             color: #fff;
         }

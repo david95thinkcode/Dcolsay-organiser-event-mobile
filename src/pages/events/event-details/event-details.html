@@ -7,7 +7,7 @@
 <ion-header>
 
   <ion-navbar>
-    <ion-title>event-details</ion-title>
+    <ion-title>{{ event.title }}</ion-title>
   </ion-navbar>
 
 </ion-header>
@@ -16,7 +16,7 @@
 
   <!-- FABS -->
   <ion-fab right bottom>
-    <button ion-fab color="primary">
+    <button ion-fab color="primary" (tap)="Dev()">
       <ion-icon name="checkmark"></ion-icon>
     </button>
   </ion-fab>
@@ -28,8 +28,14 @@
       <ion-col>
         <div class="carte">
           <img src="assets/dev/glenn-carstens-peters-282287.jpg" />
-          <div class="card-title" text-left padding>UX Conference</div>
-          <div class="card-subtitle">
+          <div class="card-title" padding>{{ event.title }}</div>
+          <div class="card-subtitle" padding>
+            <h4>
+              {{ event.description }}
+            </h4>
+            <br>
+            <br>
+            <br>
             <ion-list no-lines>
               <ion-item>
                 <ion-icon name="time" item-start></ion-icon>
@@ -51,42 +57,45 @@
         </div>
       </ion-col>
     </ion-row>
-  </ion-grid>
-
-  <ion-grid>
-    <ion-row></ion-row>
     <ion-row>
-      <ion-card text-center>
-        <ion-card-header>Prix du ticket</ion-card-header>
-        <ion-card-content>
-          <h1> 3 000 FCFA </h1>
-        </ion-card-content>
-      </ion-card>
-    </ion-row>
-    <br>
-
-    <ion-row>
-      <ion-col col-3></ion-col>
-      <ion-col>
-        <button ion-button large round>
-          Je participe
-        </button>
+      <ion-col col-4>
+        <ion-card>
+          <ion-card-content>
+            Simple PASS
+          </ion-card-content>
+        </ion-card>
       </ion-col>
-
+      <ion-col col-4>
+        <ion-card>
+          <ion-card-content>
+            3 000 FCFA
+          </ion-card-content>
+        </ion-card>
+      </ion-col>
+      <ion-col col-4>
+        <button ion-button round (tap)="Dev()"> Acheter </button>
+      </ion-col>
     </ion-row>
-    <!-- 
+
     <ion-row>
-      <h3> De quoi s'agit-il ? </h3>
-      <div>
-        Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
-        Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis
-        aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint
-        occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
-      </div>
-
+      <ion-col col-4>
+        <ion-card>
+          <ion-card-content>
+            VIP
+          </ion-card-content>
+        </ion-card>
+      </ion-col>
+      <ion-col col-4>
+        <ion-card>
+          <ion-card-content>
+            10 000 FCFA
+          </ion-card-content>
+        </ion-card>
+      </ion-col>
+      <ion-col col-4>
+        <button ion-button round (tap)="Dev()"> Acheter </button>
+      </ion-col>
     </ion-row>
-  -->
-    <br>
-
   </ion-grid>
+<br><br>
 </ion-content>

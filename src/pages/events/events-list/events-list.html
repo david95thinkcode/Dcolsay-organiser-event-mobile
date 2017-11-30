@@ -6,7 +6,7 @@
 -->
 <ion-header>
   <ion-navbar>
-    <ion-title>{{ eventCategory.label }}</ion-title>
+    <ion-title>Events</ion-title>
   </ion-navbar>
 </ion-header>
 
@@ -21,18 +21,26 @@
   <!-- END FABS -->
 
   <ion-grid>
-
-    <ion-row (tap)="showDetails()">
-      <ion-card>
-        <ion-item>
-          <ion-avatar item-start>
-            <img src="assets/dev/me.png">
-          </ion-avatar>
-          <h2>Dcolsay Benin</h2>
-          <p>November 5, 1955</p>
-        </ion-item>
-        <img src="assets/dev/kristopher-roller-188180.jpg">
-      </ion-card>
+    <ng-container *ngIf="events; else empty">
+      <ion-row *ngFor="let event of events">
+        <ion-card (tap)="showDetails(event)">
+          <ion-item>
+            <ion-avatar item-start>
+              <img src="assets/dev/me.png">
+            </ion-avatar>
+            <h2>{{ event.title }}</h2>
+            <p>{{ event.organiser_name }}</p>
+          </ion-item>
+          <img src="assets/dev/kristopher-roller-188180.jpg">
+        </ion-card>
+      </ion-row>
+    </ng-container>
+    <ng-template #empty>
+      <h3> No event on the plateforme </h3>
+    </ng-template>
+<!--     
+    <ion-row >
+      
     </ion-row>
 
     <ion-row (tap)="showDetails()">
@@ -59,7 +67,7 @@
         </ion-item>
         <img src="assets/dev/to_do_hires.jpg">
       </ion-card>
-    </ion-row>
+    </ion-row> -->
 
   </ion-grid>
 
