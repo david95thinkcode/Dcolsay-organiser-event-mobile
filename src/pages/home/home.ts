@@ -31,11 +31,9 @@ export class HomePage implements OnInit {
     // this.dr = "fdg vhdsbsdhvidfhvdfjhgkfhgihsdfighiHGVYDGVBFYSGFDIVSD5984";
   } 
 
-  ngOnInit() {
-    
+  ngOnInit() {    
     //this.qrcodeValue = [];
     this.getTickets();
-    
   }
 
   getTickets() {

@@ -22,7 +22,9 @@ export class EventsListPage implements OnInit {
 
   constructor(public navCtrl : NavController, 
     public alertCtrl : AlertController, 
-    private loadingCtrl: LoadingController, public navParams : NavParams, private eventService : EventServiceProvider) {
+    private loadingCtrl: LoadingController, 
+    public navParams : NavParams, 
+    private eventService : EventServiceProvider) {
 
     this.eventCategory = this.navParams.get('category');
   }
@@ -30,7 +32,7 @@ export class EventsListPage implements OnInit {
   ngOnInit() {
     
     this.eventCategory = new EventCategory();
-
+    console.log('HLAHALA');
     this.eventService.getAllEvents()
     .then(result => {
       this.events = result;

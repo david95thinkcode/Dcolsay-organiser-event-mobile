@@ -3,6 +3,7 @@ import { Http } from '@angular/http';
 import 'rxjs/add/operator/map';
 import { SQLite } from '@ionic-native/sqlite';
 import { Event } from '../../models/api/event.model';
+import { Host } from '../../config/host';
 
 /*
   Generated class for the EventServiceProvider provider.
@@ -12,10 +13,15 @@ import { Event } from '../../models/api/event.model';
 */
 @Injectable()
 export class EventServiceProvider {
-  private api_events_url : string = 'http://192.168.43.208:8000/api/events';
+  private host : Host = new Host();
+  private api_events_url : string;
   
   constructor(public http: Http, private sqlite : SQLite) {
-    console.log('Hello EventServiceProvider Provider');
+    
+      this.api_events_url = this.host.getHostURL + '/api/events';  
+      console.log(this.api_events_url);
+      console.log('HLAHALA');
+    // this.api_events_url = 'http://192.168.8.100:8000/api/events';
   }
 
   /**
